@@ -1,35 +1,64 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Suspense, useState } from "react";
+// import reactLogo from "./assets/react.svg";
+// import viteLogo from "/vite.svg";
+import "./App.css";
+import { Navigation } from "./components/Navigation/Navigation";
+import Loader from "./components/Loader/Loader";
+import HomePage from "./pages/HomePage";
+import { Navigate, Route, Router, Routes } from "react-router-dom";
+import CatalogPage from "./pages/CatalogPage";
 
 function App() {
-  const [count, setCount] = useState(0)
+	// const [count, setCount] = useState(0);
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	return (
+		<>
+			<Navigation />
+			{/* <HomePage /> */}
+			{/* <Loader /> */}
+			<Suspense fallback={<Loader />}>
+				<Routes>
+					<Route
+						path="/"
+						element={
+							// <PublicRoute restricted component={
+							<HomePage />
+							// } />
+						}
+					/>
+					<Route
+						path="/catalog"
+						element={
+							// <PublicRoute restricted component={
+							<CatalogPage />
+							// } />
+						}
+					/>
+					<Route
+						path="/favorites"
+						element={
+							// <PublicRoute restricted component={
+							<h3>Favorites</h3>
+							// } />
+						}
+					/>
+					<Route path="*" element={<Navigate to="/" />} />
+				</Routes>
+			</Suspense>
+			{/* <div>
+				<a href="https://vitejs.dev" target="_blank">
+					<img src={viteLogo} className="logo" alt="Vite logo" />
+				</a>
+				<a href="https://react.dev" target="_blank">
+					<img src={reactLogo} className="logo react" alt="React logo" />
+				</a>
+			</div>
+			<h1>Vite + React</h1> */}
+			{/* <button onClick={() => setCount((count) => count + 1)}>
+				count is {count}
+			</button> */}
+		</>
+	);
 }
 
-export default App
+export default App;

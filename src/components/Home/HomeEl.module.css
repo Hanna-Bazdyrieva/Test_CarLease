@@ -1,0 +1,33 @@
+.container {
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+
+	background-image: linear-gradient(
+			to top,
+			rgba(47, 48, 58, 0.4),
+			rgba(47, 48, 59, 0.4)
+		),
+		url("/public/hero.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 90vh;
+}
+
+.text {
+	position: absolute;
+	top: 90px;
+	left: 42px;
+	width: 160px;
+	color: rgb(249, 227, 217);
+	font-size: 50px;
+	font-weight: var(--fw-semi-bold);
+}
+.accent {
+	color: rgb(240, 83, 10);
+}
