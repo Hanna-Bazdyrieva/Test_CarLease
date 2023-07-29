@@ -1,0 +1,32 @@
+.container {
+	width: 274px;
+	height: 426px;
+	background-color: beige;
+}
+.imgContainer {
+	position: relative;
+	margin-bottom: 14px;
+	/* width: 274px;
+	height: 268px; */
+	border-radius: 14px;
+	text-align: center;
+
+	overflow: hidden;
+}
+.image {
+	width: 274px;
+	height: 268px;
+	object-fit: cover;
+}
+.titleContainer {
+	display: flex;
+	justify-content: space-between;
+	font-size: 16px;
+}
+
+.title {
+}
+
+.accent {
+	color: var(--btn-light);
+}

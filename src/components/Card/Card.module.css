@@ -1,0 +1,34 @@
+.cardContainer {
+	width: 540px;
+	border-radius: 24px;
+	padding: 40px;
+	background-color: var(--white);
+}
+.imageThumb {
+	margin-bottom: 14px;
+	width: 100%;
+	border-radius: 14px;
+	overflow: hidden;
+}
+
+.info {
+	display: flex;
+	gap: 24px;
+	flex-direction: column;
+}
+.generalInfo {
+	display: flex;
+	flex-direction: column;
+
+	gap: 14px;
+}
+.title {
+	font-size: 18px;
+	line-height: 24px;
+	font-weight: var(--fw-medium);
+}
+.accent {
+	color: var(--btn-light);
+}
+.description {
+}

@@ -1,0 +1,30 @@
+import PropTypes from "prop-types";
+import CardAttribute from "../CardAttribute/CardAttribute";
+import styles from "./CardAccessories_Conditions.module.css";
+
+function CardAccessories({ accessories }) {
+	return (
+		<div className={styles.container}>
+			<p className={styles.title}>Accessories and functionalities:</p>
+			{accessories.length > 0 && (
+				<div className={styles.accs}>
+					{accessories.map((item) => (
+						<CardAttribute text={item} key={item.id} />
+					))}
+				</div>
+			)}
+			{!accessories ||
+				(accessories.length === 0 && (
+					<div className={styles.accs}>
+						<CardAttribute text="None" />
+					</div>
+				))}
+		</div>
+	);
+}
+
+CardAccessories.propTypes = {
+	accessories: PropTypes.array,
+};
+
+export default CardAccessories;

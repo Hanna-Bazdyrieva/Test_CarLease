@@ -1,0 +1,6 @@
+.button {
+	display: inline;
+	padding: 14px 50px;
+
+	color: var(--white);
+}

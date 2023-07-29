@@ -5,8 +5,9 @@ import "./App.css";
 import { Navigation } from "./components/Navigation/Navigation";
 import Loader from "./components/Loader/Loader";
 import HomePage from "./pages/HomePage";
-import { Navigate, Route, Router, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import CatalogPage from "./pages/CatalogPage";
+import FavoritesPage from "./pages/FavoritesPage";
 
 function App() {
 	// const [count, setCount] = useState(0);
@@ -38,7 +39,7 @@ function App() {
 						path="/favorites"
 						element={
 							// <PublicRoute restricted component={
-							<h3>Favorites</h3>
+							<FavoritesPage />
 							// } />
 						}
 					/>
