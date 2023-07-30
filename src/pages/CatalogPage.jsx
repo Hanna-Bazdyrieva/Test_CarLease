@@ -1,5 +1,14 @@
+import cars from "../assets/cars";
+import Container from "../components/Container/Container";
+
+import List from "../components/List/List";
+
 const CatalogPage = () => {
-	return <div>CatalogPage</div>;
+	return (
+		<Container>
+			<List cars={cars} />
+		</Container>
+	);
 };
 
 export default CatalogPage;

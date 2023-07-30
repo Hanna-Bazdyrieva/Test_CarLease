@@ -1,6 +1,6 @@
 .button {
 	display: inline;
 	padding: 14px 50px;
-
+	font-weight: var(--fw-semi-bold);
 	color: var(--white);
 }

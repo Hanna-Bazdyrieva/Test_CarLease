@@ -1,13 +1,16 @@
-// import React from "react";
+import PropTypes from "prop-types";
+
 import CardAccessories from "../CardAccessories_Conditions/CardAccessories";
 import CardAttribute from "../CardAttribute/CardAttribute";
 import CardConditions from "../CardAccessories_Conditions/CardConditions";
-import styles from "./Card.module.css";
 import Button from "../Button/Button";
-import car from "../../assets/car";
 
-function Card() {
-	const addressShorten = car.address.split(",").slice(1);
+import styles from "./Card.module.css";
+
+import addressShorten from "../../utils/addressShorten";
+
+function Card({ car }) {
+	const address = addressShorten(car);
 	return (
 		<div className={styles.cardContainer}>
 			<div className={styles.imageThumb}>
@@ -25,8 +28,8 @@ function Card() {
 					</div>
 					<div className={styles.attributes}>
 						<div className={styles.attributesUpper}>
-							<CardAttribute text={addressShorten[0]} />
-							<CardAttribute text={addressShorten[1]} />
+							<CardAttribute text={address[0]} />
+							<CardAttribute text={address[1]} />
 							<CardAttribute label="Id" text={car.id} />
 							<CardAttribute label="Year" text={car.year} />
 							<CardAttribute label="Type" text={car.type} />
@@ -48,4 +51,24 @@ function Card() {
 	);
 }
 
+Card.propTypes = {
+	car: PropTypes.shape({
+		id: PropTypes.number,
+		year: PropTypes.number,
+		make: PropTypes.string,
+		model: PropTypes.string,
+		type: PropTypes.string,
+		img: PropTypes.string,
+		description: PropTypes.string,
+		fuelConsumption: PropTypes.string,
+		engineSize: PropTypes.string,
+		accessories: PropTypes.arrayOf(PropTypes.string),
+		functionalities: PropTypes.arrayOf(PropTypes.string),
+		rentalPrice: PropTypes.string,
+		rentalCompany: PropTypes.string,
+		address: PropTypes.string,
+		rentalConditions: PropTypes.string,
+		mileage: PropTypes.number,
+	}),
+};
 export default Card;
