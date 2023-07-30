@@ -1,8 +1,10 @@
 .container {
 	display: flex;
-	row-gap: 50px;
+
+	row-gap: 30px;
 	column-gap: 30px;
 	flex-wrap: wrap;
+	margin: 0 auto;
 	width: 100%;
 }
 @media screen and (min-width: 480px) {
@@ -16,11 +18,11 @@
 		width: 768px;
 	}
 }
-@media screen and (min-width: 968px) {
+/* @media screen and (min-width: 968px) {
 	.container {
 		width: 968px;
 	}
-}
+} */
 @media screen and (min-width: 1280px) {
 	.container {
 		width: 1280px;

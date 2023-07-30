@@ -17,7 +17,7 @@
 	--fw-medium: 500;
 	--fw-semi-bold: 600;
 
-	--btn-animation: background-color 300ms ease;
+	--btn-animation: background-color 300ms ease, transform 300ms ease;
 
 	font-family: "Manrope", sans-serif;
 	font-size: 14px;
@@ -62,36 +62,16 @@ body {
 }
 
 button {
-	border-radius: 12px;
-	border: 1px solid transparent;
 	padding: 12px 44px;
+
 	font-size: 14px;
 	font-weight: 500;
 	font-family: inherit;
-	background-color: var(--btn-light);
+	
+  border: none;
 	cursor: pointer;
 	transition: var(--btn-animation);
 }
-button:hover {
-	background-color: var(--btn-dark);
-}
-button:focus,
-button:focus-visible {
-	outline: 4px auto -webkit-focus-ring-color;
-}
-
-/* @media (prefers-color-scheme: light) {
-	:root {
-		color: #213547;
-		background-color: #ffffff;
-	}
-	a:hover {
-		color: #747bff;
-	}
-	button {
-		background-color: #f9f9f9;
-	}
-} */
 
 body.noScroll {
 	overflow-y: hidden;
@@ -134,6 +114,8 @@ section {
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
 	width: 100%;
 	margin: 0 auto;
 	padding-left: 16px;

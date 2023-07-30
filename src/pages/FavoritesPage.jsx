@@ -1,13 +1,14 @@
 // import React from "react";
 // import Card from "../components/Card/Card";
-import Item from "../components/Item/Item";
-import car from "../assets/car";
-import cars from "../assets/cars";
-import List from "../components/List/List";
+// import Item from "../components/Item/Item";
+// import car from "../assets/car";
+// import cars from "../assets/cars";
+// import List from "../components/List/List";
 
 function FavoritesPage() {
 	return (
 		<div>
+			FavoritesPage
 			{/* <Card car = {car} /> */}
 			{/* <Item car={car} /> */}
 		</div>

@@ -14,7 +14,7 @@ function List({ cars }) {
 }
 
 List.propTypes = {
-	cars: PropTypes.arrayOf(PropTypes.string),
+	cars: PropTypes.array,
 };
 
 export default List;
