@@ -1,21 +1,29 @@
 .cardContainer {
-	width: 540px;
-	border-radius: 24px;
-	padding: 40px;
-	background-color: var(--white);
+	width: 100%;
+	/* border-radius: 24px; */
+	/* padding: 40px; */
+	/* background-color: var(--white); */
 }
+
 .imageThumb {
-	margin-bottom: 14px;
+	max-height: 260px;
+	margin-bottom: 16px;
 	width: 100%;
 	border-radius: 14px;
+	text-align: center;
 	overflow: hidden;
+}
+.image {
+	width: 100%;
+	object-fit: cover;
 }
 
 .info {
 	display: flex;
-	gap: 24px;
+	gap: 16px;
 	flex-direction: column;
 }
+
 .generalInfo {
 	display: flex;
 	flex-direction: column;
@@ -24,7 +32,7 @@
 }
 .title {
 	font-size: 18px;
-	line-height: 24px;
+	line-height: 20px;
 	font-weight: var(--fw-medium);
 }
 .accent {

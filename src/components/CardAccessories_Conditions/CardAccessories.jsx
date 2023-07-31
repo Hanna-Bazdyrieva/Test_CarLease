@@ -8,8 +8,8 @@ function CardAccessories({ accessories }) {
 			<p className={styles.title}>Accessories and functionalities:</p>
 			{accessories.length > 0 && (
 				<div className={styles.accs}>
-					{accessories.map((item) => (
-						<CardAttribute text={item} key={item.id} />
+					{accessories.map((item, index) => (
+						<CardAttribute key={index} text={item} />
 					))}
 				</div>
 			)}

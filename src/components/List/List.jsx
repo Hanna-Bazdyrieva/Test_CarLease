@@ -1,13 +1,14 @@
 import PropTypes from "prop-types";
-import styles from "./List.module.css";
 
 import Item from "../Item/Item";
 
-function List({ cars }) {
+import styles from "./List.module.css";
+
+function List({ cars, openModal }) {
 	return (
 		<div className={styles.container}>
 			{cars.map((car) => (
-				<Item car={car} key={car.id} />
+				<Item car={car} key={car.id} openModal={openModal} />
 			))}
 		</div>
 	);
@@ -15,6 +16,7 @@ function List({ cars }) {
 
 List.propTypes = {
 	cars: PropTypes.array,
+	openModal: PropTypes.func,
 };
 
 export default List;

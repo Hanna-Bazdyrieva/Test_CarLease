@@ -561,8 +561,7 @@ const cars = [
 		make: "Chrysler",
 		model: "Voyager",
 		type: "Van/Minivan",
-		photoLink:
-			"https://res.cloudinary.com/ditdqzoio/image/upload/v1687252635/cars/chrysler_voyager.jpg",
+		img: "https://res.cloudinary.com/ditdqzoio/image/upload/v1687252635/cars/chrysler_voyager.jpg",
 		description:
 			"The Chrysler Voyager is a practical and versatile van/minivan that provides comfortable seating, ample cargo space, and a range of convenient features for family-oriented transportation.",
 		fuelConsumption: "8.2",
@@ -590,8 +589,7 @@ const cars = [
 		make: "Kia",
 		model: "Rio",
 		type: "Hatchback",
-		photoLink:
-			"https://res.cloudinary.com/ditdqzoio/image/upload/v1687252635/cars/kia_rio_hatchback.jpg",
+		img: "https://res.cloudinary.com/ditdqzoio/image/upload/v1687252635/cars/kia_rio_hatchback.jpg",
 		description:
 			"The Kia Rio is a compact and fuel-efficient hatchback that offers a blend of affordability, reliability, and practicality, making it an excellent choice for urban commuting and everyday driving.",
 		fuelConsumption: "6.2",
@@ -619,8 +617,7 @@ const cars = [
 		make: "Volvo",
 		model: "XC60",
 		type: "SUV",
-		photoLink:
-			"https://res.cloudinary.com/ditdqzoio/image/upload/v1687252635/cars/volvo_xc60_2.jpg",
+		img: "https://res.cloudinary.com/ditdqzoio/image/upload/v1687252635/cars/volvo_xc60_2.jpg",
 		description:
 			"The Volvo XC60 is a luxurious and versatile SUV that combines Scandinavian design, advanced safety features, and a comfortable driving experience, making it an ideal choice for families and adventure enthusiasts.",
 		fuelConsumption: "8.5",
@@ -648,8 +645,7 @@ const cars = [
 		make: "Land Rover",
 		model: "Range Rover Sport",
 		type: "SUV",
-		photoLink:
-			"https://res.cloudinary.com/ditdqzoio/image/upload/v1687252635/cars/land_rover_range_rover_sport.jpg",
+		img: "https://res.cloudinary.com/ditdqzoio/image/upload/v1687252635/cars/land_rover_range_rover_sport.jpg",
 		description:
 			"The Land Rover Range Rover Sport is a premium SUV that offers a perfect blend of luxury, off-road capability, and dynamic performance, providing a refined driving experience both on and off the road.",
 		fuelConsumption: "11.8",
@@ -670,6 +666,7 @@ const cars = [
 		rentalConditions:
 			"Minimum age: 25\nValid driver's license\nSecurity deposit and insurance required",
 		mileage: 4856,
+		favourite: false,
 	},
 	{
 		id: 9639,
@@ -677,8 +674,7 @@ const cars = [
 		make: "Kia",
 		model: "Rio",
 		type: "Sedan, Hatchback",
-		photoLink:
-			"https://res.cloudinary.com/ditdqzoio/image/upload/v1687252635/cars/kia_rio_sedan_hatchback.jpg",
+		img: "https://res.cloudinary.com/ditdqzoio/image/upload/v1687252635/cars/kia_rio_sedan_hatchback.jpg",
 		description:
 			"The Kia Rio is a versatile and fuel-efficient vehicle available in both sedan and hatchback body styles, offering a comfortable cabin, modern features, and a smooth driving experience, making it an attractive choice for urban commuters.",
 		fuelConsumption: "6.2",
