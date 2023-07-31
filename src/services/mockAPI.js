@@ -11,8 +11,6 @@ export const getCarsAPI = async (page = 1) => {
 			},
 		})
 		.then(function (response) {
-			console.log("getCars", response.data);
-
 			return response.data;
 		})
 		.catch(function (err) {

@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import ButtonLoadMore from "../components/ButtonLoadMore/ButtonLoadMore";
-// import Card from "../components/Card/Card";
+import Card from "../components/Card/Card";
 import List from "../components/List/List";
 import Loader from "../components/Loader/Loader";
-// import Modal from "../components/Modal/Modal";
+import Modal from "../components/Modal/Modal";
 
 import { getCars } from "../redux/operations";
 import { selectCars, selectIsLoading } from "../redux/selectors";
@@ -21,34 +21,30 @@ const CatalogPage = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		console.log(1, cars);
 		// !cars && dispatch(getCars(page));
 		dispatch(getCars(page));
-
-		console.log(2, cars);
 	}, [page]);
-	// console.log(cars);
-	// const [car, setCar] = useState({});
-	// const [showModal, setShowModal] = useState(false);
 
-	// const handleOpenModal = (car) => {
-	// 	setShowModal(true);
-	// 	setCar(car);
-	// 	document.body.style.overflow = "hidden";
-	// 	document.body.style.height = "100%";
-	// };
+	const [car, setCar] = useState({});
+	const [showModal, setShowModal] = useState(false);
 
-	// const handleCloseModal = () => {
-	// 	setShowModal(false);
-	// 	setCar({});
-	// 	document.body.style.overflow = "auto";
-	// 	document.body.style.height = "auto";
-	// };
+	const handleOpenModal = (car) => {
+		setShowModal(true);
+		setCar(car);
+		document.body.style.overflow = "hidden";
+		document.body.style.height = "100%";
+	};
+
+	const handleCloseModal = () => {
+		setShowModal(false);
+		setCar({});
+		document.body.style.overflow = "auto";
+		document.body.style.height = "auto";
+	};
 
 	if (isLoading) {
 		return <Loader />;
 	}
-	console.log("cars 3 ", cars);
 	return (
 		<>
 			<div className="container">
@@ -59,24 +55,18 @@ const CatalogPage = () => {
 						<p>Page {page}</p>
 					</ButtonLoadMore>
 				)}
-				{/* {cars && (
-					<List
-						cars={cars}
-						// openModal={handleOpenModal}
-					/>
-				)} */}
+				{cars && <List cars={cars} openModal={handleOpenModal} />}
 
 				<ButtonLoadMore onClick={() => setPage(page + 1)}>
 					<p>Page {page}</p>
 					<p>Load more cars ...</p>
 				</ButtonLoadMore>
-				{/* {showModal && (
-				<Modal shown={showModal} closeModal={handleCloseModal}>
-					<Card car={car} onClose={handleCloseModal} />
-				</Modal>
-			)} */}
+				{showModal && (
+					<Modal shown={showModal} closeModal={handleCloseModal}>
+						<Card car={car} onClose={handleCloseModal} />
+					</Modal>
+				)}
 			</div>
-			{/* )} */}
 		</>
 	);
 };

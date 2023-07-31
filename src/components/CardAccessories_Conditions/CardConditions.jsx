@@ -1,17 +1,12 @@
 import PropTypes from "prop-types";
+
 import CardConditionsItem from "../CardConditionsItem/CardConditionsItem";
 
 import styles from "./CardAccessories_Conditions.module.css";
-
-function stringToArray(item) {
-	const itemArr = item.split(":");
-	return itemArr;
-}
+import stringToArray from "../../utils/stringToArrray";
 
 function CardConditions({ conditions }) {
 	const conditionsArray = conditions.split("\n");
-
-	console.log(conditionsArray);
 
 	return (
 		<div className={styles.container}>

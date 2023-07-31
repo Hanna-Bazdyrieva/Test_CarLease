@@ -80,14 +80,14 @@ function Item({ car, openModal }) {
 
 Item.propTypes = {
 	car: PropTypes.shape({
-		id: PropTypes.string,
-		year: PropTypes.string,
+		id: PropTypes.number,
+		year: PropTypes.number,
 		make: PropTypes.string,
 		model: PropTypes.string,
 		type: PropTypes.string,
 		img: PropTypes.string,
 		description: PropTypes.string,
-		fuelConsumption: PropTypes.number,
+		fuelConsumption: PropTypes.string,
 		engineSize: PropTypes.string,
 		accessories: PropTypes.array,
 		functionalities: PropTypes.array,

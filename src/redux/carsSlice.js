@@ -13,7 +13,7 @@ export const carsSlice = createSlice({
 	extraReducers: (builder) => {
 		builder
 			.addCase(getCars.fulfilled, (state, { payload }) => {
-				console.log("getCars slice payload", payload);
+				// console.log("getCars slice payload", payload);
 				state.items = payload;
 				state.isLoading = false;
 			})
