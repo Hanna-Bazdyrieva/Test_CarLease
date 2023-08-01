@@ -47,9 +47,11 @@ a {
 	color: var(--btn-light);
 	text-decoration: inherit;
 }
+
 a:hover {
 	color: var(--btn-dark);
 }
+
 html,
 body {
 	max-width: 100vw;
@@ -67,8 +69,8 @@ button {
 	font-size: 14px;
 	font-weight: 500;
 	font-family: inherit;
-	
-  border: none;
+
+	border: none;
 	cursor: pointer;
 	transition: var(--btn-animation);
 }
@@ -114,59 +116,10 @@ section {
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 	width: 100%;
 	margin: 0 auto;
 	padding-left: 16px;
 	padding-right: 16px;
 }
-
-
-  /* section {
-    padding-top: 80px;
-    padding-bottom: 80px;
-  }
-
- 
-
-  .sectionTitleH1 {
-    margin-bottom: 40px;
-
-    font-size: 52px;
-    line-height: 1;
-  }
-
-  .sectionTitleH2 {
-    margin-bottom: 40px;
-
-    font-size: 48px;
-    line-height: calc(62 / 48);
-  }
-
-  .swiper-wrapper {
-    width: 592px !important;
-    overflow-x: visible;
-    margin: 0 auto;
-  }
-
-  .trainingSection {
-    padding-top: 80px;
-    padding-bottom: 80px;
-
-    font-size: 18px;
-    line-height: calc(28 / 18);
-  }
-
-  .trainingSection > div > button {
-    margin: 0;
-  }
-} */
-
-/* @media screen and (min-width: 1280px) {
-  section {
-    padding-top: 100px;
-    padding-bottom: 100px;
-  }
-
-
