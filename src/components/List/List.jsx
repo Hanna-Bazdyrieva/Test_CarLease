@@ -4,11 +4,16 @@ import Item from "../Item/Item";
 
 import styles from "./List.module.css";
 
-function List({ cars, openModal }) {
+function List({ cars, favouriteChange, openModal }) {
 	return (
 		<div className={styles.container}>
 			{cars.map((car) => (
-				<Item car={car} key={car.id} openModal={openModal} />
+				<Item
+					car={car}
+					key={car.id}
+					openModal={openModal}
+					favouriteChange={favouriteChange}
+				/>
 			))}
 		</div>
 	);
@@ -16,6 +21,7 @@ function List({ cars, openModal }) {
 
 List.propTypes = {
 	cars: PropTypes.array,
+	favouriteChange: PropTypes.func,
 	openModal: PropTypes.func,
 };
 

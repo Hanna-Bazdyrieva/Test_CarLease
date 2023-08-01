@@ -9,16 +9,24 @@ import addressShorten from "../../utils/addressShorten";
 import shortestInArr from "../../utils/shortestInArr";
 
 import styles from "./Item.module.css";
-// import { markFavourite } from "../../services/mockAPI";
+import { useDispatch } from "react-redux";
+import { setCarFavourite } from "../../redux/operations";
 
-function Item({ car, openModal }) {
+function Item({ car, favouriteChange, openModal }) {
 	const [favourite, setFavourite] = useState(car.favourite);
+
+	// const dispatch = useDispatch();
+
 	const address = addressShorten(car);
 	const shortestFunctionality = shortestInArr(car.functionalities);
 
 	const handleFavourite = () => {
 		setFavourite(!favourite);
-		// markFavourite(car.id, favourite);
+		console.log("Item new", car.id, favourite);
+
+		favouriteChange({ id: car.id, favourite: !favourite });
+
+		// dispatch(setCarFavourite({...car, favourite}))
 	};
 
 	return (
@@ -27,6 +35,7 @@ function Item({ car, openModal }) {
 				<div className={styles.imgContainer}>
 					{!favourite && (
 						<MdOutlineFavoriteBorder
+							// onClick={() => favouriteChange(car.id, !car.favourite)}
 							onClick={() => handleFavourite()}
 							className={styles.icon}
 						/>
@@ -80,7 +89,7 @@ function Item({ car, openModal }) {
 
 Item.propTypes = {
 	car: PropTypes.shape({
-		id: PropTypes.number,
+		id: PropTypes.string,
 		year: PropTypes.number,
 		make: PropTypes.string,
 		model: PropTypes.string,
@@ -98,6 +107,7 @@ Item.propTypes = {
 		mileage: PropTypes.number,
 		favourite: PropTypes.bool,
 	}),
+	favouriteChange: PropTypes.func,
 	openModal: PropTypes.func,
 };
 export default Item;

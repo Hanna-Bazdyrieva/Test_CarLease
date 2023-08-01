@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getCars } from "./operations";
+import { getCars, getFavouriteCars, setCarFavourite } from "./operations";
 // import { logoutUser } from 'redux/auth/authOperations';
 
 export const carsSlice = createSlice({
 	name: "cars",
 	initialState: {
 		items: [],
+		favourite: [],
 		isLoading: true,
 		error: null,
 	},
@@ -17,10 +18,18 @@ export const carsSlice = createSlice({
 				state.items = payload;
 				state.isLoading = false;
 			})
-			//     .addCase(addContact.fulfilled, (state, { payload }) => {
-			//       state.isLoading = false;
-			//       state.items.push(payload);
-			//     })
+			.addCase(getFavouriteCars.fulfilled, (state, { payload }) => {
+				state.isLoading = false;
+				// console.log("getFavCars slice payload", payload);
+
+				state.favourite = [...payload];
+			})
+			.addCase(setCarFavourite.fulfilled, (state, { payload }) => {
+				state.isLoading = false;
+				console.log("setCarFavourite slice payload", payload);
+
+				state.items = payload;
+			})
 			//     .addCase(removeContact.fulfilled, (state, { payload }) => {
 			//       state.isLoading = false;
 			//       state.items = state.items.filter(el => el.id !== payload);
@@ -36,11 +45,11 @@ export const carsSlice = createSlice({
 				}
 			)
 			.addMatcher(
-				(action) =>
-					action.type.startsWith("cars") && action.type.endsWith("/rejected"),
+				(action) => action.type.endsWith("/rejected"),
 				(state, { payload }) => {
 					state.isLoading = false;
 					state.error = payload;
+					console.log("Error", payload);
 				}
 			);
 	},
