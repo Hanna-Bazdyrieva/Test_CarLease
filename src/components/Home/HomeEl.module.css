@@ -5,6 +5,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+
 	width: 100vw;
 
 	background-image: linear-gradient(
@@ -23,11 +24,14 @@
 	position: absolute;
 	top: 90px;
 	left: 42px;
+
 	width: 160px;
 	color: rgb(249, 227, 217);
+
 	font-size: 50px;
 	font-weight: var(--fw-semi-bold);
 }
+
 .accent {
 	color: rgb(240, 83, 10);
 }
