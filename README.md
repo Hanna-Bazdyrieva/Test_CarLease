@@ -1,4 +1,4 @@
-# <i class="em em-car" aria-role="presentation" aria-label="AUTOMOBILE"></i> <img src="public/rent-a car.png" width="30" height="30"> [CarLease]([https://64caa468138146000819e8a6--warm-trifle-ddb492.netlify.app/])
+# 🚘 <img src="public/rent-a car.png" width="30" height="30"> [CarLease]([https://64caa468138146000819e8a6--warm-trifle-ddb492.netlify.app/])
 
 
 ### 📝 About
