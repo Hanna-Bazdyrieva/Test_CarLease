@@ -9,24 +9,16 @@ import addressShorten from "../../utils/addressShorten";
 import shortestInArr from "../../utils/shortestInArr";
 
 import styles from "./Item.module.css";
-import { useDispatch } from "react-redux";
-import { setCarFavourite } from "../../redux/operations";
 
 function Item({ car, favouriteChange, openModal }) {
 	const [favourite, setFavourite] = useState(car.favourite);
-
-	// const dispatch = useDispatch();
 
 	const address = addressShorten(car);
 	const shortestFunctionality = shortestInArr(car.functionalities);
 
 	const handleFavourite = () => {
 		setFavourite(!favourite);
-		console.log("Item new", car.id, favourite);
-
-		favouriteChange({ id: car.id, favourite: !favourite });
-
-		// dispatch(setCarFavourite({...car, favourite}))
+		favouriteChange(car);
 	};
 
 	return (
@@ -35,7 +27,6 @@ function Item({ car, favouriteChange, openModal }) {
 				<div className={styles.imgContainer}>
 					{!favourite && (
 						<MdOutlineFavoriteBorder
-							// onClick={() => favouriteChange(car.id, !car.favourite)}
 							onClick={() => handleFavourite()}
 							className={styles.icon}
 						/>
@@ -79,7 +70,6 @@ function Item({ car, favouriteChange, openModal }) {
 			<Button
 				text="Learn more ..."
 				onClick={() => {
-					console.log("Item, open modal");
 					openModal(car);
 				}}
 			/>

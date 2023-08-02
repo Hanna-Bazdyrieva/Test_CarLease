@@ -6,26 +6,34 @@ import List from "../components/List/List";
 import Loader from "../components/Loader/Loader";
 import Modal from "../components/Modal/Modal";
 
-import { getFavouriteCars } from "../redux/operations";
-import {
-	selectCars,
-	selectFavouriteCars,
-	selectIsLoading,
-} from "../redux/selectors";
+import { getFavouriteCars, setCarFavourite } from "../redux/operations";
+import { selectFavouriteCars, selectIsLoading } from "../redux/selectors";
 
 function FavoritesPage() {
 	const carsFavourite = useSelector(selectFavouriteCars);
-
-	console.log("carsFavourite", carsFavourite);
 	const isLoading = useSelector(selectIsLoading);
+
 	const [car, setCar] = useState({});
+	const [isFaveChange, setisFaveChange] = useState(null);
 	const [showModal, setShowModal] = useState(false);
 
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(getFavouriteCars());
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
+
+	useEffect(() => {
+		if (isFaveChange) {
+			dispatch(
+				setCarFavourite({
+					car: isFaveChange,
+				})
+			);
+			setisFaveChange(null);
+		}
+	}, [dispatch, isFaveChange]);
 
 	const handleOpenModal = (car) => {
 		setShowModal(true);
@@ -48,15 +56,21 @@ function FavoritesPage() {
 	return (
 		<>
 			<div className="container">
-				{carsFavourite && (
-					<List cars={carsFavourite} openModal={handleOpenModal} />
-				)}
+				<div className="section">
+					{carsFavourite && (
+						<List
+							cars={carsFavourite}
+							openModal={handleOpenModal}
+							favouriteChange={setisFaveChange}
+						/>
+					)}
 
-				{showModal && (
-					<Modal shown={showModal} closeModal={handleCloseModal}>
-						<Card car={car} onClose={handleCloseModal} />
-					</Modal>
-				)}
+					{showModal && (
+						<Modal shown={showModal} closeModal={handleCloseModal}>
+							<Card car={car} onClose={handleCloseModal} />
+						</Modal>
+					)}
+				</div>
 			</div>
 		</>
 	);

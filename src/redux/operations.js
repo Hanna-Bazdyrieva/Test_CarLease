@@ -6,7 +6,7 @@ import {
 } from "../services/mockAPI";
 
 export const getCars = createAsyncThunk(
-	"cars/fetchAll",
+	"cars/getCars",
 	async (page, { rejectWithValue }) => {
 		try {
 			const cars = await getCarsAPI(page);
@@ -14,57 +14,47 @@ export const getCars = createAsyncThunk(
 		} catch (error) {
 			return rejectWithValue(error.message);
 		}
-	},
-	{
-		condition: (_, { getState }) => {
-			const { items } = getState().cars;
-			if (!items.length) return true;
-			return false;
-		},
 	}
 );
 
 export const getFavouriteCars = createAsyncThunk(
-	"cars/favourite",
+	"cars/getFavouriteCars",
 	async (_, { rejectWithValue }) => {
 		try {
 			const cars = await getFavouriteCarsAPI();
-			console.log("operations fave", cars);
 			return cars;
 		} catch (error) {
 			return rejectWithValue(error.message);
 		}
-	},
-	{
-		// condition: (_, { getState }) => {
-		// 	const { favourite } = getState().cars;
-		// 	if (!favourite.length) return true;
-		// 	return false;
-		// },
+	}
+);
+
+export const setCatalogCarFavourite = createAsyncThunk(
+	"cars/setCatalogCarFavourite",
+	async ({ car, page }, { rejectWithValue }) => {
+		try {
+			await setCarFavouriteAPI(car);
+			const cars = await getCarsAPI(page);
+			return cars;
+		} catch (error) {
+			console.log("setCarFavourite operations Error", error);
+
+			return rejectWithValue(error.message);
+		}
 	}
 );
 
 export const setCarFavourite = createAsyncThunk(
-	"cars/setfavourite",
-	async ({ id, favourite, page }, { rejectWithValue }) => {
-		console.log("operations set fave", id, favourite);
+	"cars/setCarFavourite",
+	async ({ car }, { rejectWithValue }) => {
 		try {
-			console.log("operations set fave", id, favourite);
-
-			await setCarFavouriteAPI(id, favourite);
-			const cars = await getCarsAPI(page);
-			return cars;
+			await setCarFavouriteAPI(car);
+			const carsFavourite = await getFavouriteCarsAPI();
+			return carsFavourite;
 		} catch (error) {
-			console.log("setFave oper Error", error);
+			console.log("setCarFavourite operations Error", error);
 
 			return rejectWithValue(error.message);
 		}
-	},
-	{
-		// condition: (_, { getState }) => {
-		// 	const { favourite } = getState().cars;
-		// 	if (!favourite.length) return true;
-		// 	return false;
-		// },
 	}
 );

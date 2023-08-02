@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import ButtonLoadMore from "../components/ButtonLoadMore/ButtonLoadMore";
 import Card from "../components/Card/Card";
 import List from "../components/List/List";
 import Loader from "../components/Loader/Loader";
 import Modal from "../components/Modal/Modal";
 
-import { getCars, setCarFavourite } from "../redux/operations";
+import { getCars, setCatalogCarFavourite } from "../redux/operations";
 import { selectCars, selectIsLoading } from "../redux/selectors";
+import LoadMore from "../components/LoadMore/LoadMore";
 
 const CatalogPage = () => {
 	const cars = useSelector(selectCars);
@@ -16,37 +16,26 @@ const CatalogPage = () => {
 
 	const [page, setPage] = useState(1);
 	const [isFaveChange, setisFaveChange] = useState(null);
+	const [car, setCar] = useState({});
+	const [showModal, setShowModal] = useState(false);
 
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(getCars(page));
-		console.log(cars);
-	}, [page, cars]);
+	}, [dispatch, page]);
 
 	useEffect(() => {
 		if (isFaveChange) {
-			console.log("fav change Page");
-			console.log("isFaveChange2", isFaveChange);
 			dispatch(
-				setCarFavourite({
-					id: isFaveChange.id,
-					favourite: isFaveChange.favourite,
+				setCatalogCarFavourite({
+					car: isFaveChange,
 					page,
 				})
 			);
-			// dispatch(getCars(page));
-			// setisFaveChange({});
+			setisFaveChange(null);
 		}
-	}, [cars, dispatch, isFaveChange]);
-
-	// const handleFavouriteChange = (id, favourite) => {
-	// 	console.log("page chg", id, favourite);
-	// 	dispatch(setCarFavourite(id, favourite, page));
-	// };
-
-	const [car, setCar] = useState({});
-	const [showModal, setShowModal] = useState(false);
+	}, [dispatch, isFaveChange]);
 
 	const handleOpenModal = (car) => {
 		setShowModal(true);
@@ -68,26 +57,16 @@ const CatalogPage = () => {
 	return (
 		<>
 			<div className="container">
-				{page > 1 && (
-					<ButtonLoadMore onClick={() => setPage(page - 1)}>
-						<p>... Show previous</p>
-
-						<p>Page {page}</p>
-					</ButtonLoadMore>
-				)}
+				<LoadMore page={page} onClick={setPage} />
 				{cars && (
 					<List
 						cars={cars}
 						openModal={handleOpenModal}
-						// favouriteChange={handleFavouriteChange}
 						favouriteChange={setisFaveChange}
 					/>
 				)}
 
-				<ButtonLoadMore onClick={() => setPage(page + 1)}>
-					<p>Page {page}</p>
-					<p>Load more cars ...</p>
-				</ButtonLoadMore>
+				<LoadMore page={page} onClick={setPage} />
 				{showModal && (
 					<Modal shown={showModal} closeModal={handleCloseModal}>
 						<Card car={car} onClose={handleCloseModal} />

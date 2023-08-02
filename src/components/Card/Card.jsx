@@ -44,8 +44,14 @@ function Card({ car }) {
 					<div className={styles.description}>{car.description}</div>
 				</div>
 				<CardAccessories accessories={car.accessories} />
-				<CardConditions conditions={car.rentalConditions} />
-				<Button text="Rent a car" />
+				<CardConditions
+					conditions={car.rentalConditions}
+					mileage={car.mileage}
+					price={car.rentalPrice}
+				/>
+				<a href="tel:+380730000000">
+					<Button text="Rent a car" />
+				</a>
 			</div>
 		</div>
 	);
@@ -53,7 +59,7 @@ function Card({ car }) {
 
 Card.propTypes = {
 	car: PropTypes.shape({
-		id: PropTypes.number,
+		id: PropTypes.string,
 		year: PropTypes.number,
 		make: PropTypes.string,
 		model: PropTypes.string,

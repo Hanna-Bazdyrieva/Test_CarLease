@@ -1,18 +1,13 @@
-// import { useNavigate } from "react-router-dom";
 import { useCallback, useEffect } from "react";
+import { createPortal } from "react-dom";
+
+import CloseButton from "../CloseButton/CloseButton";
 
 import styles from "./Modal.module.css";
-import { createPortal } from "react-dom";
-import CloseButton from "../CloseButton/CloseButton";
+
 const modalRoot = document.querySelector("#modal-root");
 
 const Modal = ({ children, closeModal, shown }) => {
-	// const navigate = useNavigate();
-
-	// const handleCloseModal = useCallback(() => {
-	// 	navigate("/catalog");
-	// }, [navigate]);
-
 	const closeModalByEscape = useCallback(
 		(e) => {
 			if (e.code === "Escape") {
@@ -27,13 +22,7 @@ const Modal = ({ children, closeModal, shown }) => {
 			closeModal();
 		}
 	};
-	// useEffect(
-	// 	() =>
-	// 		document
-	// 			.getElementById("modalContent")
-	// 			.classList.add("modal-enter-active"),
-	// 	[]
-	// );
+
 	useEffect(() => {
 		window.addEventListener("keydown", closeModalByEscape);
 

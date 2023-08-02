@@ -1,6 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getCars, getFavouriteCars, setCarFavourite } from "./operations";
-// import { logoutUser } from 'redux/auth/authOperations';
+import {
+	getCars,
+	getFavouriteCars,
+	setCarFavourite,
+	setCatalogCarFavourite,
+} from "./operations";
 
 export const carsSlice = createSlice({
 	name: "cars",
@@ -14,30 +18,21 @@ export const carsSlice = createSlice({
 	extraReducers: (builder) => {
 		builder
 			.addCase(getCars.fulfilled, (state, { payload }) => {
-				// console.log("getCars slice payload", payload);
 				state.items = payload;
 				state.isLoading = false;
 			})
 			.addCase(getFavouriteCars.fulfilled, (state, { payload }) => {
 				state.isLoading = false;
-				// console.log("getFavCars slice payload", payload);
-
 				state.favourite = [...payload];
+			})
+			.addCase(setCatalogCarFavourite.fulfilled, (state, { payload }) => {
+				state.isLoading = false;
+				state.items = payload;
 			})
 			.addCase(setCarFavourite.fulfilled, (state, { payload }) => {
 				state.isLoading = false;
-				console.log("setCarFavourite slice payload", payload);
-
-				state.items = payload;
+				state.favourite = payload;
 			})
-			//     .addCase(removeContact.fulfilled, (state, { payload }) => {
-			//       state.isLoading = false;
-			//       state.items = state.items.filter(el => el.id !== payload);
-			//     })
-			//     .addCase(logoutUser.fulfilled, (state)=>{
-			//       state.isLoading = false;
-			//       state.items = [];
-			//     })
 			.addMatcher(
 				(action) => action.type.endsWith("/pending"),
 				(state) => {

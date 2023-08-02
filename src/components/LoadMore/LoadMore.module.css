@@ -1,0 +1,23 @@
+.icon {
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+.icon:hover {
+	height: 24px;
+}
+
+.loadContainer {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 8px;
+	margin: 12px auto;
+}
+
+.text {
+	display: inline;
+	font-size: 16px;
+	font-weight: var(--fw-semi-bold);
+	color: var(--btn-dark);
+}

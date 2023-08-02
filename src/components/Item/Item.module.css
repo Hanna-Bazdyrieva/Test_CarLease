@@ -12,13 +12,13 @@
 
 @media screen and (min-width: 768) {
 	.container {
-		width: calc((100% - 30px) / 2);
+		max-width: calc((100% - 30px) / 2);
 	}
 }
 
 @media screen and (min-width: 1280px) {
 	.container {
-		width: calc((100% - 2 * 16px - 3 * 30px) / 4);
+		max-width: calc((100% - 2 * 16px - 3 * 30px) / 4);
 	}
 }
 

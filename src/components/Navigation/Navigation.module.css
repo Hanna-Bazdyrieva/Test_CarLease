@@ -1,3 +1,14 @@
+.headerNav {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin: 0 auto;
+	padding: 20px;
+	width: 100%;
+	height: 60px;
+	border-bottom: 2px solid var(--gray-menu);
+}
+
 .link {
 	display: block;
 	width: 100%;
@@ -11,20 +22,17 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	gap: 32px;
+	gap: 52px;
 }
-.headerNav {
+
+.logo {
 	display: flex;
 	flex-direction: row;
+	gap: 8px;
 	align-items: center;
-	padding: 20px;
-	width: 100vw;
-	height: 60px;
-	background-color: var(--input-bg);
-}
-.logo {
+
 	margin-right: 60px;
-	font-size: 28px;
+	font-size: 32px;
 	font-weight: var(--fw-semi-bold);
 	color: var(--text);
 }

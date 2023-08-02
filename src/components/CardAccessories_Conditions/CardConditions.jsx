@@ -5,7 +5,7 @@ import CardConditionsItem from "../CardConditionsItem/CardConditionsItem";
 import styles from "./CardAccessories_Conditions.module.css";
 import stringToArray from "../../utils/stringToArrray";
 
-function CardConditions({ conditions }) {
+function CardConditions({ conditions, mileage, price }) {
 	const conditionsArray = conditions.split("\n");
 
 	return (
@@ -30,18 +30,18 @@ function CardConditions({ conditions }) {
 					})}
 				</div>
 			)}
-			{/* {!accessories ||
-				(accessories.length === 0 && (
-					<div className={styles.accs}>
-						<CardAttribute text="None" />
-					</div>
-				))} */}
+			<div className={styles.accs}>
+				<CardConditionsItem label="Mileage" text={mileage.toLocaleString()} />
+				<CardConditionsItem label="Price" text={price.substring(1) + "$"} />
+			</div>
 		</div>
 	);
 }
 
 CardConditions.propTypes = {
 	conditions: PropTypes.string,
+	mileage: PropTypes.number,
+	price: PropTypes.string,
 };
 
 export default CardConditions;

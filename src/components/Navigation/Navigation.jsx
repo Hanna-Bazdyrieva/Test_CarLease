@@ -1,57 +1,68 @@
-// import clsx from 'clsx';
+/* eslint-disable no-mixed-spaces-and-tabs */
 import { NavLink } from "react-router-dom";
-// import { useSelector } from 'react-redux';
+import { BsCarFront } from "react-icons/bs";
 
-// import { selectorIsLoggedIn } from 'redux/auth/authSelectors';
 import styles from "./Navigation.module.css";
-// import { useMediaQuery } from 'react-responsive';
-// import { useEffect } from 'react';
 
-export const Navigation = () => {
-	// const isAuth = useSelector(selectorIsLoggedIn);
-	// const location = useLocation();
-
-	// const isTablMob = useMediaQuery({ query: '(max-width: 1279px)' });
-	// const isDesktop = useMediaQuery({ query: '(min-width: 1280px)' });
-
-	// useEffect(() => {
-	//   isDesktop && handleToggleMenu(false);
-	// }, [isDesktop, handleToggleMenu]);
-
-	// const getActiveClass = ({ isActive }) =>
-	//   clsx(
-	//     !isAuth && d.link,
-	//     !isAuth && isActive && d.active,
-	//     isAuth && isActive && d.authLinkActive,
-	//     isAuth && d.authLink
-	//   );
-
+const Navigation = () => {
 	return (
 		<>
-			<div className={styles.headerNav}>
-				<NavLink className={styles.logo} to="/">
-					<h5>CarLease</h5>
-				</NavLink>
-				<div className={styles.linkContainer}>
-					<NavLink className={styles.link} to="/">
-						Home
-					</NavLink>
-					<NavLink className={styles.link} to="/catalog">
-						Catalog
-					</NavLink>
-					<NavLink className={styles.link} to="/favorites">
-						Favorites
-					</NavLink>
+			<div className="container">
+				<div className="section">
+					<div className={styles.headerNav}>
+						<NavLink className={styles.logo} to="/">
+							<BsCarFront />
+							<h5>CarLease</h5>
+						</NavLink>
+						<div className={styles.linkContainer}>
+							<NavLink
+								style={({ isActive }) =>
+									isActive
+										? {
+												color: "rgb(240, 83, 10)",
+												textDecorationLine: "underline",
+										  }
+										: { color: "#121417" }
+								}
+								className={styles.link}
+								to="/"
+							>
+								Home
+							</NavLink>
+							<NavLink
+								style={({ isActive }) =>
+									isActive
+										? {
+												color: "#0b44cd",
+												textDecorationLine: "underline",
+										  }
+										: { color: "#121417" }
+								}
+								className={styles.link}
+								to="/catalog"
+							>
+								Catalog
+							</NavLink>
+							<NavLink
+								style={({ isActive }) =>
+									isActive
+										? {
+												color: "#0b44cd",
+												textDecorationLine: "underline",
+										  }
+										: { color: "#121417" }
+								}
+								className={styles.link}
+								to="/favorites"
+							>
+								Favorites
+							</NavLink>
+						</div>
+					</div>
 				</div>
-
-				{/* <NavLink
-					// className={getActiveClass}
-					state={location}
-					to="/register"
-				>
-					Registration
-				</NavLink> */}
 			</div>
 		</>
 	);
 };
+
+export default Navigation;
