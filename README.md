@@ -10,6 +10,12 @@ Stack used - React reusable components and hooks, CSS modules, React Router Dom 
 
 Project was Deployed on Netlify. 
 
+### 💾 Commands for developers:
+- `npm run dev` &mdash; start the project in development mode
+- `npm run build` &mdash; build the project locally before deployment
+
+  
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
