@@ -1,9 +1,12 @@
-# React + Vite
+
 # <img src="public/rent-a car.png" width="30" height="30"> [CarLease]([https://64caa468138146000819e8a6--warm-trifle-ddb492.netlify.app/])
 
 
 ### 📝 About
-API for [TaskPro](https://svmoskalyov.github.io/taskpro/welcome) project. The MongoDB database is used, and the Mongoose library is used to connect to the database. Used HTTP request methods (GET, POST, PUT, PATCH, DELETE). Authentication using JWT and user authorization using email and password is done. The user's password is stored in hashed form. The CORS mechanism is implemented. Only an authorized user can use the application. Each user creates his own tasks that only he can see. Developed API documentation.
+[CarLease]([https://64caa468138146000819e8a6--warm-trifle-ddb492.netlify.app/]) project is a Test assignment done fo GOIT. 
+Vite is used for project initialization.
+Stack used - React reusable components and hooks, CSS modules, React Router Dom Navigation, Redux store, 
+Project was Deployed on Netlify. 
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
