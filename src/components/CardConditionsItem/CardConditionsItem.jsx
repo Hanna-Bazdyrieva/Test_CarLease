@@ -4,14 +4,14 @@ import styles from "./CardConditionsItem.module.css";
 
 function CardConditionsItem({ label, text }) {
 	return (
-		<div className={styles.container}>
+		<li className={styles.container}>
 			{label && (
 				<div className={styles.attribute}>
 					{label} : <span className={styles.accent}>{text}</span>
 				</div>
 			)}
 			{!label && <div className={styles.attribute}> {text}</div>}
-		</div>
+		</li>
 	);
 }
 

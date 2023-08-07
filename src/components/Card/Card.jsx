@@ -12,20 +12,26 @@ import addressShorten from "../../utils/addressShorten";
 function Card({ car }) {
 	const address = addressShorten(car);
 	return (
-		<div className={styles.cardContainer}>
-			<div className={styles.imageThumb}>
-				<img
-					className={styles.image}
-					src={car.img}
-					alt={`${car.make} ${car.model} ${car.year} car photo`}
-				/>
-			</div>
+		<article className={styles.cardContainer}>
+			<figure>
+				<div className={styles.imageThumb}>
+					<img
+						className={styles.image}
+						src={car.img}
+						alt={`${car.make} ${car.model} ${car.year} car photo`}
+					/>
+				</div>
+				<figcaption className={styles.title}>
+					{car.make} <span className={styles.accent}>{car.model}</span>,{" "}
+					{car.year}
+				</figcaption>
+			</figure>
 			<div className={styles.info}>
 				<div className={styles.generalInfo}>
-					<div className={styles.title}>
+					{/* <div className={styles.title}>
 						{car.make} <span className={styles.accent}>{car.model}</span>,{" "}
 						{car.year}
-					</div>
+					</div> */}
 					<div className={styles.attributes}>
 						<div className={styles.attributesUpper}>
 							<CardAttribute text={address[0]} />
@@ -53,7 +59,7 @@ function Card({ car }) {
 					<Button text="Rent a car" />
 				</a>
 			</div>
-		</div>
+		</article>
 	);
 }
 

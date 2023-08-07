@@ -7,9 +7,9 @@ import styles from "./Navigation.module.css";
 const Navigation = () => {
 	return (
 		<>
-			<div className="container">
+			<header className="container">
 				<div className="section">
-					<div className={styles.headerNav}>
+					<nav className={styles.headerNav}>
 						<NavLink className={styles.logo} to="/">
 							<BsCarFront />
 							<h5>CarLease</h5>
@@ -58,9 +58,9 @@ const Navigation = () => {
 								Favorites
 							</NavLink>
 						</div>
-					</div>
+					</nav>
 				</div>
-			</div>
+			</header>
 		</>
 	);
 };

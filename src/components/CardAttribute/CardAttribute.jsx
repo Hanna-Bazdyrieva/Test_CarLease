@@ -6,11 +6,11 @@ function CardAttribute({ label, text }) {
 	return (
 		<>
 			{label && (
-				<div className={styles.attribute}>
+				<li className={styles.attribute}>
 					{label} : {text}
-				</div>
+				</li>
 			)}
-			{!label && <div className={styles.attribute}> {text}</div>}
+			{!label && <li className={styles.attribute}> {text}</li>}
 		</>
 	);
 }

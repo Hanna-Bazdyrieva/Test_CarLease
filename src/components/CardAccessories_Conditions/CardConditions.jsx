@@ -12,7 +12,7 @@ function CardConditions({ conditions, mileage, price }) {
 		<div className={styles.container}>
 			<p className={styles.title}>Rental Conditions: </p>
 			{conditionsArray.length > 0 && (
-				<div className={styles.accs}>
+				<ul className={styles.accs}>
 					{conditionsArray.map((item, index) => {
 						const containsColumn = item.includes(":");
 						if (containsColumn) {
@@ -28,7 +28,7 @@ function CardConditions({ conditions, mileage, price }) {
 							return <CardConditionsItem key={index} text={item} />;
 						}
 					})}
-				</div>
+				</ul>
 			)}
 			<div className={styles.accs}>
 				<CardConditionsItem label="Mileage" text={mileage.toLocaleString()} />

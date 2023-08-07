@@ -6,7 +6,7 @@ import styles from "./List.module.css";
 
 function List({ cars, favouriteChange, openModal }) {
 	return (
-		<div className={styles.container}>
+		<ul className={styles.container}>
 			{cars.map((car) => (
 				<Item
 					car={car}
@@ -15,7 +15,7 @@ function List({ cars, favouriteChange, openModal }) {
 					favouriteChange={favouriteChange}
 				/>
 			))}
-		</div>
+		</ul>
 	);
 }
 

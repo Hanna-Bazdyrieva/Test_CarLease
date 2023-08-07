@@ -22,7 +22,7 @@ function Item({ car, favouriteChange, openModal }) {
 	};
 
 	return (
-		<div className={styles.container}>
+		<li className={styles.container}>
 			<div>
 				<div className={styles.imgContainer}>
 					{!favourite && (
@@ -52,20 +52,20 @@ function Item({ car, favouriteChange, openModal }) {
 					<p>{car.rentalPrice}</p>
 				</div>
 
-				<div className={styles.attributesContainer}>
-					<div>
+				<ul className={styles.attributesContainer}>
+					<li>
 						<CardAttribute text={address[0]} />
 						<CardAttribute text={address[1]} />
 						<CardAttribute text={car.rentalCompany} />
-					</div>
+					</li>
 
-					<div>
+					<li>
 						<CardAttribute text={car.type} />
 						<CardAttribute text={car.model} />
 						<CardAttribute text={car.id} />
 						<CardAttribute text={shortestFunctionality} />
-					</div>
-				</div>
+					</li>
+				</ul>
 			</div>
 			<Button
 				text="Learn more ..."
@@ -73,7 +73,7 @@ function Item({ car, favouriteChange, openModal }) {
 					openModal(car);
 				}}
 			/>
-		</div>
+		</li>
 	);
 }
 

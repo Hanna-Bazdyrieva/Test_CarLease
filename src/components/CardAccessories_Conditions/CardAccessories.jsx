@@ -7,11 +7,11 @@ function CardAccessories({ accessories }) {
 		<div className={styles.container}>
 			<p className={styles.title}>Accessories and functionalities:</p>
 			{accessories.length > 0 && (
-				<div className={styles.accs}>
+				<ul className={styles.accs}>
 					{accessories.map((item, index) => (
 						<CardAttribute key={index} text={item} />
 					))}
-				</div>
+				</ul>
 			)}
 			{!accessories ||
 				(accessories.length === 0 && (
